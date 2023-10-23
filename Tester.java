@@ -21,6 +21,8 @@ public class Tester {
 			
 		}else if(input.equals("fillarray")) {
 			fillArray(Board.getBoard());
+		}else {
+			System.out.println("nuh uh");
 		}
 		
 		
