@@ -7,6 +7,11 @@ public class Board {
 	 * rewrite win conditions for efficiency
 	 * fix the intro to be cleaner and to accept non ints
 	 * work on improved bot algorithm (working on random rn)
+	 * 
+	 * Active Work:
+	 * 
+	 * main code refactoring <-- *this has to come first*
+	 * rng bot work
 	 *
 	 */
 	
