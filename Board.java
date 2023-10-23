@@ -2,17 +2,16 @@ package connect4;
 import java.util.Scanner;
 public class Board {
 	
-	/* To Dos:
-	 *
+	/* __To Dos:__
+	 1) FIX win conditions (not 1st row/col wins not counting)
 	 * rewrite win conditions for efficiency
 	 * fix the intro to be cleaner and to accept non ints
 	 * work on improved bot algorithm (working on random rn)
 	 * 
-	 * Active Work:
-	 * 
-	 * main code refactoring <-- *this has to come first*
-	 * rng bot work
-	 *
+	 * __Active Work:__
+	 1) main code refactoring <-- *this has to come first*
+	 --> the bot is being treated like a player (yikers)
+	 2) rng bot work
 	 */
 	
 	private static int[][] board = new int[7][6];
@@ -24,10 +23,15 @@ public class Board {
 		
 		Scanner scan = new Scanner(System.in);	
 		
-		// board = Tester.fillArray(board);
 		System.out.print("Would you like to play with 1 or 2 people? ");
 		numPlayers = scan.nextInt();
 		scan.nextLine();
+		
+		// tester
+		if(numPlayers==11 || numPlayers==12) {
+			numPlayers-=10;
+			Tester.prompt(scan);
+		}
 		
 		// Player 1 Setup
 		System.out.print("Player 1 type your name: ");
