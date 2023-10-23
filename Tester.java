@@ -1,5 +1,31 @@
 package connect4;
+import java.util.Scanner;
+
 public class Tester {
+	
+	public static void prompt(Scanner scan) {
+		System.out.println("Which method would you like to call? hWin, vWin, dWin, fillArray");
+		String input = scan.nextLine().toLowerCase();
+		
+		if(input.equals("hwin")) {
+			System.out.print("1/2, amount");
+			hWin(scan.nextInt(), scan.nextInt());
+			
+		}else if(input.equals("vwin")) {
+			System.out.print("1/2, amount");
+			vWin(scan.nextInt(), scan.nextInt());
+			
+		}else if(input.equals("dwin")) {
+			System.out.print("1/2, amount");
+			dWin(scan.nextInt(), scan.nextInt());
+			
+		}else if(input.equals("fillarray")) {
+			fillArray(Board.getBoard());
+		}
+		
+		
+	}// end of prompt
+	
 	
 	public static int[][] fillArray (int[][] board) {
 		for(int r=0; r<board.length; r++) {
