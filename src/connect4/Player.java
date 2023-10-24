@@ -1,6 +1,6 @@
 package connect4;
 import java.util.Scanner;
-//import java.util.Random;
+
 public class Player {
 	
 	private String name;
@@ -36,7 +36,6 @@ public class Player {
 				break;
 			}
 		}
-		//while() <-- what was i doing here
 		
 	}// end of doTurn
 	
