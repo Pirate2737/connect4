@@ -13,6 +13,7 @@ public class Board {
 	 1) main code refactoring <-- *this has to come first*
 	 --> the bot is being treated like a player (yikers)
 	 2) rng bot work
+	 3) fix the tester classes lol (eeky)
 	 */
 	
 	private static int[][] board = new int[7][6];
@@ -82,10 +83,12 @@ public class Board {
 		// Game loop
 		gameLoop(p1, p2, scan);
 		
+		// End Game
 		System.out.println("Final board: ");
 		printBoard();
 		System.out.println();
 		
+		// Checks if Game is Over
 		if(checkOver()==0) {
 			System.out.println("It's a tie!");
 		}else if(checkOver()==1) {
@@ -105,6 +108,7 @@ public class Board {
 			p1.doTurn(scan);
 			checkOver();
 			
+			// if "exit" or win
 			if(isOver) {
 				break;
 			}
