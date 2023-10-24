@@ -21,13 +21,13 @@ public class Tester {
 			
 		}else if(input.equals("fillarray")) {
 			fillArray(Board.getBoard());
+			
 		}else {
 			System.out.println("nuh uh");
 		}
 		
 		
-	}// end of prompt
-	
+	}// end of prompt()
 	
 	public static int[][] fillArray (int[][] board) {
 		for(int r=0; r<board.length; r++) {
@@ -70,7 +70,6 @@ public class Tester {
 		for(int c=0; c<Board.getBoard()[0].length; c++) {
 			Board.setBoard(c, c, num);
 		}
-	}
-	
+	}// end of dWin()
 	
 }// end of tester class
