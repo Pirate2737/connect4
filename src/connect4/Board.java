@@ -1,5 +1,6 @@
 package connect4;
 import java.util.Scanner;
+
 public class Board {
 	
 	/* __To Dos:__
