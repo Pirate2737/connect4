@@ -39,7 +39,6 @@ public class Board {
 		System.out.print("Player 1 type your name: ");
 		Player p1 = new Player(scan.nextLine(), 1);
 		
-		
 		// Gameplay
 		if(numPlayers==1) {
 			onePlayerGame(p1, scan);
@@ -81,7 +80,7 @@ public class Board {
 		System.out.println("Connect 4 Game Started with \"" + p1.getName() + "\" and \"" + p2.getName() + "\". Type \"exit\" at any time to stop the game");
 		
 		// Game loop
-		gameLoop(p1, p2, scan);
+		botGameLoop(p1, p2, scan);
 		
 		// End Game
 		System.out.println("Final board: ");
@@ -126,7 +125,7 @@ public class Board {
 		}// main game loop
 	}// end of method gameloop 2p
 	
-	private static void gameLoop(Player p1, Bot p2, Scanner scan) {
+	private static void botGameLoop(Player p1, Bot p2, Scanner scan) {
 		while(!isOver) {
 			numTurns++;
 			printBoard();
@@ -140,8 +139,8 @@ public class Board {
 			
 			printBoard();
 			
-			System.out.print("Player \"" + p2.getName() + "\" Turn " + numTurns + ": Which column would you like to place your piece? (1-6) ");
-			p2.doTurn(scan);
+			System.out.print("Player \"" + p2.getName() + "\" Turn " + numTurns);
+			p2.randTurn();
 			checkOver();
 			
 			if(numTurns==42) {
