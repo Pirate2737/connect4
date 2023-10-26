@@ -80,8 +80,4 @@ public class Player {
 		numWins++;
 	}
 	
-	public boolean isPlayer() {
-		return true;
-	}
-	
 }// end of class
