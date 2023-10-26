@@ -7,13 +7,15 @@ public class Board {
 	 1) FIX win conditions (not 1st row/col wins not counting)
 	 * rewrite win conditions for efficiency
 	 * fix the intro to be cleaner and to accept non ints
-	 * work on improved bot algorithm (working on random rn)
-	 * 
-	 * __Active Work:__
-	 1) main code refactoring <-- *this has to come first*
-	 --> the bot is being treated like a player (yikers)
-	 2) rng bot work
+	 * work on improved bot algorithm
+	 * randomize who starts
+	 * infinite game
+	 
+	     __Active Work:__
+	 1) fixing win conditions [this will make the game playable]
+	 2) main code refactoring
 	 3) fix the tester classes lol (eeky)
+	 
 	 */
 	
 	private static int[][] board = new int[7][6];
@@ -139,7 +141,7 @@ public class Board {
 			
 			printBoard();
 			
-			System.out.print("Player \"" + p2.getName() + "\" Turn " + numTurns);
+			System.out.println("Player \"" + p2.getName() + "\" Turn " + numTurns);
 			p2.randTurn();
 			checkOver();
 			
@@ -201,7 +203,7 @@ public class Board {
 	}
 	
 	public static int checkOver() {
-		//if to check, then set isOver
+		// if to check, then set isOver
 		int cond = 0;
 		int num = board[6][0];
 		
