@@ -8,13 +8,11 @@ public class Bot extends Player {
 	
 	public void randTurn() {
 
-		String input = String.valueOf((Math.random()*1 + 1));
-
-		// checks if there's a spot available (isValidMove)
-		while(super.isValidMove(input) != -1) {
-			Integer friend = (int)Math.random()*1 + 1;
-			input = String.valueOf(friend);
-		}
+		String input;
+		
+		do {
+			input = String.valueOf((int)(Math.random()*5 + 1));	
+		}while(super.isValidMove(input) == -1);
 		
 		int col = Integer.parseInt(input);
 		
@@ -26,9 +24,5 @@ public class Bot extends Player {
 		}
 		
 	}// end of doTurn()
-	
-	public boolean isPlayer() {
-		return false;
-	}
 
 }// end of class
