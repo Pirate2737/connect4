@@ -38,7 +38,7 @@ public class Player {
 		
 	}// end of doTurn()
 	
-	public int isValidMove(String input) { // needs to check if works
+	public int isValidMove(String input) {
 		int col;
 		
 		// exit on "exit"
@@ -61,7 +61,6 @@ public class Player {
 		
 		return col;
 	}// end of isValidMove()
-	
 	
 	// info methods
 	public String getName() {
