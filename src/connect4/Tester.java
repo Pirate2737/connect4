@@ -42,7 +42,7 @@ public class Tester {
 	}// end of fillArray
 	
 	public static void hWin(int num, int x) {
-		if(x==-1 || x>5) {
+		if(x==-1 || x>6) {
 			x=Board.getBoard()[0].length;
 		}
 		
@@ -54,7 +54,7 @@ public class Tester {
 	}// end of hWin()
 	
 	public static void vWin(int num, int x) {
-		if(x==-1 || x>6) {
+		if(x==-1 || x>5) {
 			x=Board.getBoard().length;
 		}
 		
@@ -66,7 +66,7 @@ public class Tester {
 	}// end of vWin()
 	
 	public static void dWin(int num, int x) {
-		if(x==-1 || x>6) {
+		if(x==-1 || x>7) {
 			x=6;
 		}
 		
