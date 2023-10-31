@@ -48,7 +48,7 @@ public class Player {
 		}
 		
 		// checks for num
-		else if(input.equals("1") || input.equals("2") || input.equals("3") || input.equals("4") || input.equals("5") || input.equals("6")) {
+		else if(input.equals("1") || input.equals("2") || input.equals("3") || input.equals("4") || input.equals("5") || input.equals("6") || input.equals("7")) {
 			col = Integer.parseInt(input);
 		}else {return -1;}
 		
