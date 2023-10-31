@@ -18,18 +18,25 @@ public class Board {
 	 
 	 */
 	
-	private static int[][] board = new int[7][6];
+	private static int[][] board = new int[6][7];
 	private static boolean isOver = false;
 	private static int numTurns = 0;
 	private static int numPlayers;
 	
 	public static void main(String[] args) {
-		
+
+		String input;
 		Scanner scan = new Scanner(System.in);	
 		
-		System.out.print("Would you like to play with 1 or 2 people? ");
-		numPlayers = scan.nextInt();
-		scan.nextLine();
+		System.out.print("Would you like to play dfgdfbh 1 or 2 peoplfe? ");
+
+		input = scan.nextLine();
+
+		while(!(input.equals("1") || input.equals("2") || input.equals("3") || input.equals("4") || input.equals("5") || input.equals("6"))) {
+			System.out.println("Invalid Answer. Try Again.");
+			input = scan.nextLine();
+		}
+		numPlayers = Integer.parseInt(input);
 		
 		// tester
 		if(numPlayers==11 || numPlayers==12) {
@@ -114,13 +121,13 @@ public class Board {
 				break;
 			}
 			
+			numTurns++;
 			printBoard();
-			
 			System.out.print("Player \"" + p2.getName() + "\" Turn " + numTurns + ": Which column would you like to place your piece? (1-6) ");
 			p2.doTurn(scan);
 			checkOver();
 			
-			if(numTurns==42) {
+			if(numTurns==84) {
 				break;
 			}
 			
@@ -139,13 +146,13 @@ public class Board {
 				break;
 			}
 			
+			numTurns++;
 			printBoard();
-			
 			System.out.println("Player \"" + p2.getName() + "\" Turn " + numTurns);
-			p2.randTurn();
+			p2.doTurn(numTurns);
 			checkOver();
 			
-			if(numTurns==42) {
+			if(numTurns==84) {
 				break;
 			}
 			
