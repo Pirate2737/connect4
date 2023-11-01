@@ -29,7 +29,7 @@ public class Player {
 		}// end of while loop
 		
 		// placing the piece
-		for(int r=Board.getBoard()[0].length; r > -1; r--) {
+		for(int r=Board.getBoard().length-1; r > -1; r--) {
 			if(Board.getBoard()[r][col]==0) {
 				Board.setBoard(r, col, xo);
 				break;
