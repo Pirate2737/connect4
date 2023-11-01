@@ -9,13 +9,17 @@ public class Bot extends Player {
 	}
 	
 	public void doTurn(int turns) {
-		if(((int)(Math.random()*1))==1) {
+		if(((int)(Math.random()*2))==1) {
 			randTurn();
 		}else {
 			// turn one claim middle
 			if(turns==1) {
 				Board.setBoard(0, 3, PIECE);
 			}
+//			else if(Board.checkOver(3)!=PIECE) {
+//				// code to block a win
+//			}
+			
 			else {randTurn();}
 			
 			
@@ -27,7 +31,7 @@ public class Bot extends Player {
 		
 		do {
 			input = String.valueOf((int)(Math.random()*6 + 1));	
-		}while(super.isValidMove(input) == -1);
+		} while(super.isValidMove(input) == -1);
 		
 		int col = Integer.parseInt(input);
 		
