@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Tester {
 	
 	public static void prompt(Scanner scan) {
-		System.out.println("\nWhich method would you like to call? hWin, vWin, dWin, fillArray");
+		System.out.println("\nWhich method would you like to call? hWin, vWin, dWin, fillArray, over");
 		String input = scan.nextLine().toLowerCase();
 		
 		if(input.equals("hwin")) {
@@ -25,10 +25,12 @@ public class Tester {
 		}else if(input.equals("fillarray")) {
 			fillArray(Board.getBoard());
 			
+		}else if(input.equals("over")) {
+			setOver();
+			
 		}else {
 			System.out.println("nuh uh");
 		}
-		
 		
 	}// end of prompt()
 	
@@ -74,5 +76,9 @@ public class Tester {
 			Board.setBoard(c, c, num);
 		}
 	}// end of dWin()
+	
+	private static void setOver() {
+		Board.setOver();
+	}
 	
 }// end of tester class
