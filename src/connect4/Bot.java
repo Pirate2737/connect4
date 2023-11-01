@@ -26,12 +26,12 @@ public class Bot extends Player {
 		String input;
 		
 		do {
-			input = String.valueOf((int)(Math.random()*5 + 1));	
+			input = String.valueOf((int)(Math.random()*6 + 1));	
 		}while(super.isValidMove(input) == -1);
 		
 		int col = Integer.parseInt(input);
 		
-		for(int r=Board.getBoard()[0].length; r>-1; r--) {
+		for(int r=Board.getBoard().length-1; r>-1; r--) {
 			if(Board.getBoard()[r][col]==0) {
 				Board.setBoard(r, col, PIECE);
 				break;
