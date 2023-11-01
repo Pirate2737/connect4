@@ -71,7 +71,7 @@ public class Player {
 		this.name = name;
 	}
 	
-	public int numWins() {
+	public int getWins() {
 		return numWins;
 	}
 	
