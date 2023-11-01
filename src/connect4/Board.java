@@ -4,17 +4,16 @@ import java.util.Scanner;
 public class Board {
 	
 	/* __To Dos:__
-	 1) FIX win conditions (not 1st row/col wins not counting)
 	 * rewrite win conditions for efficiency
-	 * fix the intro to be cleaner and to accept non ints
-	 * work on improved bot algorithm
+	 * colors
 	 * randomize who starts
 	 * infinite game
 	 
 	     __Active Work:__
-	 1) fixing win conditions [this will make the game playable]
-	 2) main code refactoring
-	 3) fix the tester classes lol (eeky)
+	 1) fixing win conditions [this will make the game playable](not 1st row/col wins not counting)
+	 2) work on improved bot algorithm
+	 3) main code refactoring
+	 4) fix the tester classes lol (eeky)
 	 
 	 */
 	
@@ -27,31 +26,41 @@ public class Board {
 		String input;
 		Scanner scan = new Scanner(System.in);	
 		
-		System.out.print("Would you like to play dfgdfbh 1 or 2 peoplfe? ");
-
-		input = scan.nextLine();
-
-		while(!(input.equals("1") || input.equals("2") || input.equals("3") || input.equals("4") || input.equals("5") || input.equals("6"))) {
-			System.out.println("Invalid Answer. Try Again.");
+		while(true) {
+			System.out.print("Would you like to play with 1 or 2 people? ");
+	
 			input = scan.nextLine();
-		}
-		numPlayers = Integer.parseInt(input);
-		
-		// tester
-		if(numPlayers==11 || numPlayers==12) {
-			numPlayers-=10;
-			Tester.prompt(scan);
-		}
-		
-		// Player 1 Setup
-		System.out.print("Player 1 type your name: ");
-		Player p1 = new Player(scan.nextLine(), 1);
-		
-		// Gameplay
-		if(numPlayers==1) {
-			onePlayerGame(p1, scan);
-		}else if(numPlayers==2){
-			twoPlayerGame(p1, scan);
+	
+			while(!(input.equals("1") || input.equals("2") || input.equals("11") || input.equals("12"))) {
+				System.out.println("Invalid Answer. Try Again.");
+				input = scan.nextLine();
+			}
+			numPlayers = Integer.parseInt(input);
+	
+			// tester
+			if(numPlayers==11 || numPlayers==12) {
+				numPlayers-=10;
+				Tester.prompt(scan);
+			}
+			
+			// Player 1 Setup
+			System.out.print("Player 1 type your name: ");
+			Player p1 = new Player(scan.nextLine(), 1);
+			
+			// Gameplay
+			if(numPlayers==1) {
+				onePlayerGame(p1, scan);
+			}else if(numPlayers==2){
+				twoPlayerGame(p1, scan);
+			}
+			
+			System.out.println("Would you like to play again?");
+			input = scan.nextLine();
+			if(input.toLowerCase().equals("no")) {
+				break;
+			}
+			isOver = false;
+			clearBoard();
 		}
 		
 		scan.close();
@@ -111,7 +120,7 @@ public class Board {
 		while(!isOver) {
 			numTurns++;
 			printBoard();
-			System.out.print("Player \"" + p1.getName() + "\" Turn " + numTurns + ": Which column would you like to place your piece? (1-6) ");
+			System.out.print("Player \"" + p1.getName() + "\" Turn " + numTurns + ": Which column would you like to place your piece? (1-7) ");
 			p1.doTurn(scan);
 			checkOver();
 			
@@ -122,7 +131,7 @@ public class Board {
 			
 			numTurns++;
 			printBoard();
-			System.out.print("Player \"" + p2.getName() + "\" Turn " + numTurns + ": Which column would you like to place your piece? (1-6) ");
+			System.out.print("Player \"" + p2.getName() + "\" Turn " + numTurns + ": Which column would you like to place your piece? (1-7) ");
 			p2.doTurn(scan);
 			checkOver();
 			
@@ -137,7 +146,7 @@ public class Board {
 		while(!isOver) {
 			numTurns++;
 			printBoard();
-			System.out.print("Player \"" + p1.getName() + "\" Turn " + numTurns + ": Which column would you like to place your piece? (1-6) ");
+			System.out.print("Player \"" + p1.getName() + "\" Turn " + numTurns + ": Which column would you like to place your piece? (1-7) ");
 			p1.doTurn(scan);
 			checkOver();
 			
@@ -211,7 +220,7 @@ public class Board {
 	public static int checkOver() {
 		// if to check, then set isOver
 		int cond = 0;
-		int num = board[6][0];
+		int num = board[5][0];
 		
 		// checks for vertical win
 		for(int c=0; c<board[0].length; c++) {
@@ -230,7 +239,7 @@ public class Board {
 			cond = 0;
 		}// end of vertical win
 		
-		num = board[6][0];
+		num = board[5][0];
 		// checks for horizontal win
 		for(int r=board.length-1; r>=0; r--) {
 			for(int c=0; c<board[0].length; c++) {
