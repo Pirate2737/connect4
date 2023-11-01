@@ -24,7 +24,6 @@ public class Board {
 	private static int numPlayers;
 	
 	public static void main(String[] args) {
-
 		String input;
 		Scanner scan = new Scanner(System.in);	
 		
