@@ -78,7 +78,7 @@ public class Tester {
 	}// end of dWin()
 	
 	private static void setOver() {
-		Board.setOver();
-	}
+		Board.setOver(true);
+	}// end of setOver()
 	
 }// end of tester class
