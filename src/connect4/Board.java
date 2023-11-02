@@ -87,9 +87,9 @@ public class Board {
 		printBoard();
 		System.out.println();
 		
-		if(checkOver(xToWin)==0) {
+		if(checkOver(board, xToWin)==0) {
 			System.out.println("It's a tie!");
-		}else if(checkOver(xToWin)==1) {
+		}else if(checkOver(board, xToWin)==1) {
 			System.out.println("Congrats to \"" + p1.getName() + "\" for winning!!");
 			p1.incWins();
 		}else {
@@ -112,9 +112,9 @@ public class Board {
 		System.out.println();
 		
 		// Checks if Game is Over
-		if(checkOver(xToWin)==0) {
+		if(checkOver(board, xToWin)==0) {
 			System.out.println("It's a tie!");
-		}else if(checkOver(xToWin)==1) {
+		}else if(checkOver(board, xToWin)==1) {
 			System.out.println("Congrats to \"" + p1.getName() + "\" for winning!!");
 			p1.incWins();
 		}else {
@@ -131,7 +131,7 @@ public class Board {
 			printBoard();
 			System.out.print("\nPlayer \"" + p1.getName() + "\" Turn " + numTurns + ": Which column would you like to place your piece? (1-7) ");
 			p1.doTurn(scan);
-			checkOver(xToWin);
+			checkOver(board, xToWin);
 			
 			// if "exit" or win
 			if(isOver) {
@@ -142,7 +142,7 @@ public class Board {
 			printBoard();
 			System.out.print("\nPlayer \"" + p2.getName() + "\" Turn " + numTurns + ": Which column would you like to place your piece? (1-7) ");
 			p2.doTurn(scan);
-			checkOver(xToWin);
+			checkOver(board, xToWin);
 			
 			if(numTurns==84) {
 				break;
@@ -157,7 +157,7 @@ public class Board {
 			printBoard();
 			System.out.print("\nPlayer \"" + p1.getName() + "\" Turn " + numTurns + ": Which column would you like to place your piece? (1-7) ");
 			p1.doTurn(scan);
-			checkOver(xToWin);
+			checkOver(board, xToWin);
 			
 			if(isOver) {
 				break;
@@ -167,7 +167,7 @@ public class Board {
 			printBoard();
 			System.out.println("\nPlayer \"" + p2.getName() + "\" Turn " + numTurns);
 			p2.doTurn(numTurns);
-			checkOver(xToWin);
+			checkOver(board, xToWin);
 			
 			if(numTurns==84) {
 				break;
@@ -214,31 +214,31 @@ public class Board {
 		}
 	}// end of clearBoard()
 	
-	public static void setOver() {
-		isOver = true;
+	public static void setOver(boolean bool) {
+		isOver = bool;
 	}
 	
-	public static int checkOver(int x) {
+	public static int checkOver(int[][] localBoard,int x) {
 		// if to check, then set isOver
 		int cond = 0;
-		int num = board[5][0];
+		int num = localBoard[5][0];
 		
 		// checks for vertical win
-		for(int c=0; c<board[0].length; c++) {
-			for(int r=board.length-1; r>=0; r--) {
+		for(int c=0; c<localBoard[0].length; c++) {
+			for(int r=localBoard.length-1; r>=0; r--) {
 				
 				cond++;
-				if(board[r][c] != num || num==0) {
-					num=board[r][c];
+				if(localBoard[r][c] != num || num==0) {
+					num=localBoard[r][c];
 					cond = 0;
-					if(board[r][c]!=0) {
+					if(localBoard[r][c]!=0) {
 						cond=1;
 					}
 				}
 				//System.out.println("Col: " + c + " | Row: " + r + " | num + cond: " + num + ": " + cond);
 				if(cond==x) {
 					if(x==xToWin) {
-						setOver();
+						setOver(true);
 					}
 					return num;
 				}			
@@ -262,7 +262,7 @@ public class Board {
 				}
 				if(cond==x) {
 					if(x==xToWin) {
-						setOver();
+						setOver(true);
 					}
 					return num;
 				}
