@@ -43,7 +43,7 @@ public class Player {
 		
 		// exit on "exit"
 		if(input.toLowerCase().equals("exit")) {
-			Board.setOver();
+			Board.setOver(true);
 			return 0;
 		}
 		
